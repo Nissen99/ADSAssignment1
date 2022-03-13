@@ -9,16 +9,20 @@ public class Client {
 
 
     public int evaluateExpression(ArrayList<Token> tokenList) throws MalformedExpressionExeption {
+        try {
+            CalculatorVisitor calculatorVisitor = new CalculatorVisitor();
 
-        CalculatorVisitor calculatorVisitor = new CalculatorVisitor();
+
+            for (Token token : tokenList) {
+                token.accept(calculatorVisitor);
+            }
 
 
-        for (Token token : tokenList) {
-            token.accept(calculatorVisitor);
+            return calculatorVisitor.getResult();
+
+        } catch (Exception e){
+            throw new MalformedExpressionExeption();
         }
-
-
-        return calculatorVisitor.getResult();
 
 
 
