@@ -31,7 +31,7 @@ public class LinkedList<T> implements List<T>{
 
     @Override
     public T removeFirst() throws EmptyListException {
-        if (head == null || head.getNext() == null){
+        if (head == null){
             throw new EmptyListException();
         }
         T oldHeadData = head.getData();

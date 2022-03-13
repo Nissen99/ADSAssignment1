@@ -13,12 +13,14 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public void push(T element) {
+        System.out.println("Push");
         linkedList.addToFront(element);
 
     }
 
     @Override
     public T pop() throws EmptyStackException {
+        System.out.println("Pop");
 
         try {
             return linkedList.removeFirst();
